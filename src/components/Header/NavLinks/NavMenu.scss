@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  width: 71%;
+
+  .menu_list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding-left: 20px;
+  }
+}
+
+.nav_link {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.nav_link-active {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}

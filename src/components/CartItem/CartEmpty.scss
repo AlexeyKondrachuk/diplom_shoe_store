@@ -1,0 +1,22 @@
+.container-emptyCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  .img-card_empty {
+    width: 16vw;
+  }
+}
+
+.cartempty-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+}

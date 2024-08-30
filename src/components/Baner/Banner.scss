@@ -1,0 +1,35 @@
+.banner-container {
+  display: flex;
+  position: relative;
+  max-width: 1280px;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 auto;
+
+  img {
+    object-fit: fill;
+    width: 100%;
+  }
+
+  .blur {
+    display: flex;
+    position: absolute;
+    background-color: rgba(219, 217, 217, 0.6);
+    font-weight: 900;
+    font-size: 25px;
+    padding-left: 40px;
+    padding-right: 85px;
+    padding-top: 10px;
+    width: 22%;
+    height: 5vw;
+    z-index: 3;
+    align-items: center;
+
+    h2 {
+      color: white;
+      white-space: nowrap;
+      font-size: 48px;
+      font-weight: 900;
+    
+    } }
+}

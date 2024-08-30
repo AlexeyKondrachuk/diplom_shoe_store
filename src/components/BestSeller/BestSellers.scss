@@ -1,0 +1,59 @@
+
+.bestsellers-homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .bestseller_title-homepage {
+        font-size: 2vw;
+        font-weight: bolder;
+
+    }
+}
+
+.bestSellers-container {
+    display: flex;
+    position: relative;
+    max-width: 1280px;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.items-bestSellers {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    gap: 10px;
+    list-style: none;
+    justify-content: center;
+
+    .item-bestSellers {
+        min-width: 300px;
+        border: 1px solid black;
+    }
+    
+  
+    }
+
+
+.bestSellers-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 21vw;
+   
+}
+
+
+.img-bestsellers {
+    width: 20vw;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+
+}

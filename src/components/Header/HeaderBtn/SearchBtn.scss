@@ -1,0 +1,10 @@
+.search_btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  svg {
+    &:hover {
+      stroke: #000000;
+    }
+  }
+}
