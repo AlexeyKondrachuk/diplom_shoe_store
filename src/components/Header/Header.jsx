@@ -46,15 +46,18 @@ function Header() {
   };
 
   const handlerSearch = (e) => {
+    localStorage.setItem('search', e.target.value)
     setSearchHeader(e.target.value);
   };
 
+  const searchLs = localStorage.getItem('search')
+
   useEffect(() => {
-    dispatch(setSearchValueHeader(searhHeader));
+    dispatch(setSearchValueHeader(searchLs));
     setSearchHeader(searchState);
   }, [searchState, searhHeader]);
 
-  console.log(searchState);
+
 
   return (
     <header className="header">
