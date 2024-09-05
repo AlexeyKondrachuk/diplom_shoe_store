@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addOrderItems, setDoneOrder } from "./orderSlice"; 
 
 export const itemsInCart =
   localStorage.getItem("item") !== null
@@ -90,7 +91,13 @@ const cartSlice = createSlice({
 
       localStorage.setItem("count", JSON.stringify(state.count));
     },
+    
   },
+  extraReducers: (builder) => {
+      builder.addCase(setDoneOrder, (state, action) => {
+        state.item = []
+      })
+  }
 });
 
 export const {

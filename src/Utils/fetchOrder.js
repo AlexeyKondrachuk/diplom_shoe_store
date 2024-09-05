@@ -16,8 +16,8 @@ export const fetchPostOrder = createAsyncThunk(
       if (!response.ok) {
         throw new Error("Can't add order. Server error.");
       }
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch (Error) {
+      return rejectWithValue(Error.message);
     }
   }
 );

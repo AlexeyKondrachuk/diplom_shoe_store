@@ -1,14 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchPostOrder } from "../../Utils/fetchOrder";
 
+
+
 const initialState = {
   order: {
     owner: {},
     items: [],
   },
-  status: "Loading", // loading | success | error
+  status: null, // loading | success | error
+  doneOrder: false
 };
 
+console.log(location)
 const orderSlice = createSlice({
   name: "order",
   initialState,
@@ -19,6 +23,12 @@ const orderSlice = createSlice({
     addOrderItems(state, action) {
       state.order.items = [...action.payload];
     },
+    setDoneOrder(state, action) {
+      state.doneOrder = action.payload
+    },
+    setStatus(state, action){
+      state.status = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPostOrder.pending, (state, action) => {
@@ -29,8 +39,11 @@ const orderSlice = createSlice({
 
     builder.addCase(fetchPostOrder.fulfilled, (state, action) => {
       state.status = "Succes";
+      localStorage.removeItem("item")
+      localStorage.removeItem("count")
       state.order.owner = {};
       state.order.items = [];
+      
     });
 
     builder.addCase(fetchPostOrder.rejected, (state, action) => {
@@ -41,6 +54,6 @@ const orderSlice = createSlice({
   },
 });
 
-export const { addOrderOwner, addOrderItems } = orderSlice.actions;
+export const { addOrderOwner, addOrderItems, setDoneOrder, setStatus } = orderSlice.actions;
 
 export default orderSlice.reducer;

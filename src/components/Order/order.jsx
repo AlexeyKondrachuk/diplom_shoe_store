@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addOrderOwner, addOrderItems } from "../../redux/slices/orderSlice";
+import { addOrderOwner, addOrderItems, setDoneOrder, setStatus } from "../../redux/slices/orderSlice";
 import { fetchPostOrder } from "../../Utils/fetchOrder";
 import { itemsInCart } from "../../redux/slices/cartSlice";
 import "./order.scss";
+import { useLocation } from "react-router-dom";
 
 const initialValues = {
   phone: "",
@@ -12,15 +13,17 @@ const initialValues = {
 
 export default function Order() {
   const orderPost = useSelector((state) => state.order.order);
+  const  status = useSelector((state) => state.order.status);
+  const location = useLocation()
 
-  console.log(orderPost);
+
 
   const fields = ["id", "count", "price"];
   const orderItems = itemsInCart.map((i) =>
     Object.fromEntries(fields.map((f) => [f, i[f]]))
   );
 
-  console.log(orderItems);
+
 
   const [order, setOrder] = useState(initialValues);
   const dispatch = useDispatch();
@@ -40,12 +43,21 @@ export default function Order() {
     dispatch(addOrderOwner(order));
   }, [order]);
 
+
   const handleOrderPost = async () => {
     console.log(order);
     if (orderPost.length !== 0) {
       dispatch(fetchPostOrder(orderPost));
     }
   };
+
+  useEffect(() => {
+    if (status === 'Succes') {
+      dispatch(setDoneOrder(true))
+   
+    }
+  }, [handleOrderPost]);
+
 
   return (
     <section className="order">
